@@ -52,6 +52,8 @@ class BooksController < ApplicationController
     params.permit(:title,:body)
   end
   
+  protected
+  
   def ensure_correct_user
     @book = Book.find(params[:id])
     unless @book.user == current_user
